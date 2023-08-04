@@ -20,7 +20,7 @@ io.on('connection', socket => {
         
         socket.join(user.room);
 
-        socket.emit('message', formatMessage(botName, 'Welcome to Chatbored Dumbass!~'));
+        socket.emit('message', formatMessage(botName, 'Welcome to ChatBored Dumbass!~'));
 
         socket.broadcast.to(user.room).emit('message', formatMessage(botName, `${user.username} has joined the chat`));   
         
@@ -42,7 +42,7 @@ io.on('connection', socket => {
 
         if(user) {
             io.to(user.room).emit('message', formatMessage(botName,`${user.username} has left the chat`));
-            
+
             io.to(user.room).emit('roomUsers', {
                 room: user.room, 
                 users: getRoomUsers(user.room)
